@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -578,11 +577,14 @@ footer .heart {
 
 <div id="lock-screen">
   <div class="lock-card">
+
     <p class="kicker">Espace privé</p>
 
     <h2 class="lock-title">Arielle & Benjamin</h2>
 
-    <p class="lock-sub">5 ans d'amour <span class="heart">♥</span></p>
+    <p class="lock-sub">
+      5 ans d'amour <span class="heart">♥</span>
+    </p>
 
     <p style="font:.88rem Arial,sans-serif;color:var(--champ)">
       Entrez la date de votre mariage pour ouvrir vos souvenirs
@@ -599,11 +601,12 @@ footer .heart {
       aria-label="Date du mariage"
     >
 
-    <button type="button" class="lock-btn" onclick="ouvrir()">
+    <button type="button" class="lock-btn" id="open-button">
       Ouvrir nos souvenirs
     </button>
 
     <p id="lock-error" role="alert"></p>
+
   </div>
 </div>
 
@@ -614,7 +617,9 @@ footer .heart {
 <div id="hearts"></div>
 
 <header class="hero">
+
   <div class="hero-inner">
+
     <p class="kicker">Célébrons cinq années de bonheur</p>
 
     <h1>Benjamin <span class="heart">&</span><br>Arielle</h1>
@@ -628,10 +633,13 @@ footer .heart {
     <a class="btn" href="#souvenirs">
       Entrer dans vos souvenirs
     </a>
+
   </div>
+
 </header>
 
 <section class="intro">
+
   <p class="eyebrow">Une histoire précieuse</p>
 
   <h2>Cinq ans de vous.<br>Et tant d'amour à célébrer.</h2>
@@ -643,25 +651,35 @@ footer .heart {
     La vôtre en fait partie. Aujourd'hui, nous célébrons votre amour,
     votre foi et tous les beaux moments qui vous ont rapprochés.
   </p>
+
 </section>
 
 <main id="souvenirs" class="memories">
 
+  <!-- SOUVENIR 1 -->
+
   <section class="memory">
+
     <div class="photo-wrap">
+
       <img
         src="photo2.jpg.jpeg"
-        data-candidates="photo2.jpeg,photo2.jpg,photo2.png,photo2.jpg.jpeg"
+        data-candidates="photo2.jpeg,photo2.jpg,photo2.png"
         alt="Portrait d'Arielle"
         loading="eager"
         fetchpriority="high"
       >
+
       <span class="photo-number">01</span>
+
     </div>
 
     <div class="copy">
+
       <p class="eyebrow">Un souvenir précieux</p>
+
       <h2>Arielle</h2>
+
       <h3>Douce, vertueuse, pure et honorable.</h3>
 
       <p>
@@ -669,33 +687,63 @@ footer .heart {
         Altruiste, avec un esprit brillant. Tu es une sœur d'âme,
         celle que mon cœur a choisie.
       </p>
+
     </div>
+
   </section>
 
+  <!-- SOUVENIR 2 -->
+
   <section class="memory">
+
     <div class="photo-wrap">
-      <img src="photo3.jpg.jpeg" alt="Benjamin" loading="lazy">
+
+      <img
+        src="photo3.jpg.jpeg"
+        alt="Benjamin"
+        loading="lazy"
+      >
+
       <span class="photo-number">02</span>
+
     </div>
 
     <div class="copy">
+
       <p class="eyebrow">Un souvenir précieux</p>
+
       <h2>Benjamin</h2>
+
       <h3>Humble, avenant, modeste, vertueux.</h3>
 
       <p>Leader bienveillant, homme droit.</p>
+
     </div>
+
   </section>
 
+  <!-- SOUVENIR 3 -->
+
   <section class="memory">
+
     <div class="photo-wrap">
-      <img src="photo4.jpg.jpeg" alt="Ensemble, sous le même ciel" loading="lazy">
+
+      <img
+        src="photo4.jpg.jpeg"
+        alt="Ensemble, sous le même ciel"
+        loading="lazy"
+      >
+
       <span class="photo-number">03</span>
+
     </div>
 
     <div class="copy">
+
       <p class="eyebrow">Un souvenir précieux</p>
+
       <h2>Ensemble, sous le même ciel</h2>
+
       <h3>Votre présence est une bénédiction.</h3>
 
       <p>
@@ -707,18 +755,33 @@ footer .heart {
         bonheur, longévité et amour. Un amour qui grandit chaque jour,
         un bonheur qui se multiplie, une vie remplie d'amour.
       </p>
+
     </div>
+
   </section>
 
+  <!-- SOUVENIR 4 -->
+
   <section class="memory">
+
     <div class="photo-wrap">
-      <img src="photo5.jpg.jpeg" alt="Ma famille de cœur" loading="lazy">
+
+      <img
+        src="photo5.jpg.jpeg"
+        alt="Ma famille de cœur"
+        loading="lazy"
+      >
+
       <span class="photo-number">04</span>
+
     </div>
 
     <div class="copy">
+
       <p class="eyebrow">Un souvenir précieux</p>
+
       <h2>Ma famille de cœur</h2>
+
       <h3>Vous m'avez peaufinée.</h3>
 
       <p>
@@ -726,18 +789,33 @@ footer .heart {
         une personne meilleure. Aujourd'hui, je ne vous considère
         plus comme des amis. Vous êtes ma famille.
       </p>
+
     </div>
+
   </section>
 
+  <!-- SOUVENIR 5 -->
+
   <section class="memory">
+
     <div class="photo-wrap">
-      <img src="photo6.jpg.jpeg" alt="Complices au quotidien" loading="lazy">
+
+      <img
+        src="photo6.jpg.jpeg"
+        alt="Complices au quotidien"
+        loading="lazy"
+      >
+
       <span class="photo-number">05</span>
+
     </div>
 
     <div class="copy">
+
       <p class="eyebrow">Un souvenir précieux</p>
+
       <h2>Complices au quotidien</h2>
+
       <h3>Une belle équipe, dans tous les domaines.</h3>
 
       <p>
@@ -745,20 +823,33 @@ footer .heart {
         Que vous continuiez à avancer côte à côte, à vous encourager
         et à construire ensemble de beaux souvenirs.
       </p>
+
     </div>
+
   </section>
 
-  <!-- NOUVELLE PHOTO -->
+  <!-- SOUVENIR 6 -->
 
   <section class="memory">
+
     <div class="photo-wrap">
-      <img src="photo7.jpg.jpeg" alt="Un autre beau souvenir" loading="lazy">
+
+      <img
+        src="photo7.jpg.jpeg"
+        alt="Un autre beau souvenir"
+        loading="lazy"
+      >
+
       <span class="photo-number">06</span>
+
     </div>
 
     <div class="copy">
+
       <p class="eyebrow">Un autre chapitre de votre histoire</p>
+
       <h2>Un souvenir de plus</h2>
+
       <h3>Parce que les beaux moments méritent d'être gardés.</h3>
 
       <p>
@@ -766,7 +857,9 @@ footer .heart {
         Que cette nouvelle image vous rappelle encore tout
         le bonheur que vous construisez ensemble.
       </p>
+
     </div>
+
   </section>
 
 </main>
@@ -774,6 +867,7 @@ footer .heart {
 <!-- CINQ ANNÉES -->
 
 <section class="noces">
+
   <p class="eyebrow gold">
     27 novembre 2021 — 27 novembre 2026
   </p>
@@ -793,11 +887,13 @@ footer .heart {
   </p>
 
   <p style="font-size:2rem;color:#ff7180">♥</p>
+
 </section>
 
 <!-- LETTRE PERSONNELLE -->
 
 <section class="letter">
+
   <div class="paper">
 
     <p class="eyebrow" style="text-align:center">
@@ -827,64 +923,105 @@ Joyeuses noces de bois, mes chers amis. Je vous aime très fort, et je vous souh
     </p>
 
   </div>
+
 </section>
 
+<!-- PIED DE PAGE -->
+
 <footer>
+
   <p>ARIELLE & BENJAMIN</p>
+
   <p>Cinq ans d'amour · 27.11.2021</p>
-  <p>Une histoire précieuse, pour toujours <span class="heart">♥</span></p>
+
+  <p>
+    Une histoire précieuse, pour toujours
+    <span class="heart">♥</span>
+  </p>
+
 </footer>
 
 </div>
 
-<!-- JAVASCRIPT -->
+<!-- JAVASCRIPT CORRIGÉ -->
 
 <script>
+
+/* OUVERTURE DU SITE */
+
 function ouvrir() {
+
   const champ = document.getElementById("pass");
   const erreur = document.getElementById("lock-error");
+
+  // Supprimer les espaces et caractères non numériques
   const date = champ.value.replace(/\D/g, "");
 
   if (date === "27112021") {
+
+    // Masquer l'écran du mot de passe
     document.getElementById("lock-screen").style.display = "none";
+
+    // Afficher le contenu du site
     document.getElementById("site-content").style.display = "block";
 
+    // Revenir en haut de la page
     window.scrollTo(0, 0);
+
+    // Lancer les petits cœurs
     lancerCoeurs();
 
   } else {
+
     erreur.textContent =
       "Cette date ne correspond pas. Réessayez ♥";
 
     champ.value = "";
     champ.focus();
+
   }
+
 }
+
+/* BOUTON D'OUVERTURE */
+
+document.getElementById("open-button").addEventListener("click", ouvrir);
 
 /* OUVERTURE AVEC LA TOUCHE ENTRÉE */
 
-document.getElementById("pass").addEventListener("keydown",function(e) {
+document.getElementById("pass").addEventListener("keydown", function(e) {
+
   if (e.key === "Enter") {
     ouvrir();
   }
+
 });
 
 /* CORRECTION DU PORTRAIT D'ARIELLE */
 
 const portraitArielle = document.querySelector(
-  'img[alt="Portrait d\\'Arielle"]'
+  'img[alt^="Portrait d"]'
 );
 
 if (portraitArielle) {
-  const alternatives = portraitArielle.dataset.candidates.split(",");
+
+  const alternatives =
+    portraitArielle.dataset.candidates.split(",");
+
   let index = 0;
 
-  portraitArielle.addEventListener("error",function() {
+  portraitArielle.addEventListener("error", function() {
+
     if (index < alternatives.length) {
+
       portraitArielle.src = alternatives[index].trim();
+
       index++;
+
     }
+
   });
+
 }
 
 /* ANIMATION DES CŒURS ROUGES */
@@ -892,32 +1029,56 @@ if (portraitArielle) {
 let coeurTimer = null;
 
 function lancerCoeurs() {
+
   const zone = document.getElementById("hearts");
 
-  if (coeurTimer) return;
+  if (!zone || coeurTimer) return;
 
   function creerCoeur() {
+
     const coeur = document.createElement("span");
 
     coeur.className = "fheart";
-    coeur.textContent = Math.random() > 0.45 ? "♥" : "♡";
 
-    coeur.style.left = Math.random() * 100 + "%";
-    coeur.style.top = (65 + Math.random() * 35) + "%";
-    coeur.style.fontSize = (13 + Math.random() * 20) + "px";
-    coeur.style.color = Math.random() > 0.5 ? "#e63946" : "#ff7180";
+    coeur.textContent =
+      Math.random() > 0.45 ? "♥" : "♡";
+
+    coeur.style.left =
+      Math.random() * 100 + "%";
+
+    coeur.style.top =
+      (65 + Math.random() * 35) + "%";
+
+    coeur.style.fontSize =
+      (13 + Math.random() * 20) + "px";
+
+    coeur.style.color =
+      Math.random() > 0.5 ? "#e63946" : "#ff7180";
 
     zone.appendChild(coeur);
 
-    setTimeout(() => coeur.remove(),6000);
+    setTimeout(function() {
+
+      coeur.remove();
+
+    }, 6000);
+
   }
 
-  for (let i=0;i<15;i++) {
-    setTimeout(creerCoeur,i*250);
+  // Première apparition de plusieurs cœurs
+
+  for (let i = 0; i < 15; i++) {
+
+    setTimeout(creerCoeur, i * 250);
+
   }
 
-  coeurTimer = setInterval(creerCoeur,650);
+  // Apparition continue des cœurs
+
+  coeurTimer = setInterval(creerCoeur, 650);
+
 }
+
 </script>
 
 </body>
