@@ -22,9 +22,13 @@
   --ink:#382b2b;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing:border-box;
+}
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+}
 
 body {
   margin:0;
@@ -181,8 +185,12 @@ body {
     opacity:0;
     transform:translateY(25px) rotate(-15deg) scale(.5);
   }
-  15% { opacity:.9; }
-  70% { opacity:.75; }
+  15% {
+    opacity:.9;
+  }
+  70% {
+    opacity:.75;
+  }
   100% {
     opacity:0;
     transform:translateY(-150px) rotate(20deg) scale(1.15);
@@ -231,7 +239,9 @@ body {
   }
 }
 
-.hero .kicker { color:#ffe0c1; }
+.hero .kicker {
+  color:#ffe0c1;
+}
 
 h1 {
   font-size:clamp(3.2rem,10vw,7.5rem);
@@ -431,7 +441,9 @@ h1 {
   font-style:italic;
 }
 
-.gold { color:#f0d2a8; }
+.gold {
+  color:#f0d2a8;
+}
 
 .noces p {
   max-width:700px;
@@ -494,14 +506,20 @@ footer {
   letter-spacing:.1em;
 }
 
-footer p { margin:7px; }
+footer p {
+  margin:7px;
+}
 
-footer .heart { color:#ff6475; }
+footer .heart {
+  color:#ff6475;
+}
 
 /* TÉLÉPHONE */
 
 @media(max-width:720px) {
-  .hero::before { inset:10px; }
+  .hero::before {
+    inset:10px;
+  }
 
   .memory {
     grid-template-columns:1fr;
@@ -518,22 +536,32 @@ footer .heart { color:#ff6475; }
     text-align:center;
   }
 
-  .photo-wrap img { max-height:600px; }
+  .photo-wrap img {
+    max-height:600px;
+  }
 
-  .intro { padding:70px 24px 45px; }
+  .intro {
+    padding:70px 24px 45px;
+  }
 
   .photo-number {
     left:5px;
     bottom:-15px;
   }
 
-  .noces { padding:75px 24px; }
+  .noces {
+    padding:75px 24px;
+  }
 
-  .letter { padding:70px 18px; }
+  .letter {
+    padding:70px 18px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior:auto; }
+  html {
+    scroll-behavior:auto;
+  }
 
   *,*::before,*::after {
     animation-duration:.01ms !important;
@@ -808,27 +836,27 @@ footer .heart { color:#ff6475; }
 
       <img
         src="photo7.jpg.jpeg"
-        alt="Un autre souvenir précieux"
+        alt="Un autre souvenir d'Arielle et Benjamin"
         loading="lazy"
       >
 
-      <span class="photo-number">♥</span>
+      <span class="photo-number">06</span>
 
     </div>
 
     <div class="copy">
 
-      <p class="eyebrow">Un souvenir précieux</p>
+      <p class="eyebrow">Un autre souvenir</p>
 
       <h2>Un autre souvenir</h2>
 
-      <h3>Parce que chaque instant compte.</h3>
+      <h3>Un instant précieux à garder pour toujours.</h3>
 
       <p>
-        Et parce qu'une belle histoire est faite de mille petits
-        moments qui méritent d'être gardés précieusement.
-        Que cette photo soit un autre joli souvenir de votre
-        belle histoire à deux.
+        Parce que votre belle histoire est faite de tant de moments
+        précieux. Cette photo vient ajouter un nouveau chapitre
+        à vos souvenirs, et j'espère qu'elle vous rappellera
+        toujours la beauté de votre amour et de votre complicité.
       </p>
 
     </div>
@@ -1031,7 +1059,9 @@ function lancerCoeurs() {
     zone.appendChild(coeur);
 
     setTimeout(function() {
+
       coeur.remove();
+
     }, 6000);
 
   }
@@ -1039,7 +1069,9 @@ function lancerCoeurs() {
   // Première apparition de plusieurs cœurs
 
   for (let i = 0; i < 15; i++) {
+
     setTimeout(creerCoeur, i * 250);
+
   }
 
   // Apparition continue des cœurs
