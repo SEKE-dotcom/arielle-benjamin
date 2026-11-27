@@ -22,13 +22,9 @@
   --ink:#382b2b;
 }
 
-* {
-  box-sizing:border-box;
-}
+* { box-sizing:border-box; }
 
-html {
-  scroll-behavior:smooth;
-}
+html { scroll-behavior:smooth; }
 
 body {
   margin:0;
@@ -161,9 +157,7 @@ body {
 
 /* CONTENU */
 
-#site-content {
-  display:none;
-}
+#site-content { display:none; }
 
 #hearts {
   position:fixed;
@@ -185,12 +179,8 @@ body {
     opacity:0;
     transform:translateY(25px) rotate(-15deg) scale(.5);
   }
-  15% {
-    opacity:.9;
-  }
-  70% {
-    opacity:.75;
-  }
+  15% { opacity:.9; }
+  70% { opacity:.75; }
   100% {
     opacity:0;
     transform:translateY(-150px) rotate(20deg) scale(1.15);
@@ -239,9 +229,7 @@ body {
   }
 }
 
-.hero .kicker {
-  color:#ffe0c1;
-}
+.hero .kicker { color:#ffe0c1; }
 
 h1 {
   font-size:clamp(3.2rem,10vw,7.5rem);
@@ -382,13 +370,9 @@ h1 {
   box-shadow:0 8px 20px #e6394630;
 }
 
-.copy {
-  max-width:490px;
-}
+.copy { max-width:490px; }
 
-.memory h2 {
-  margin:10px 0 14px;
-}
+.memory h2 { margin:10px 0 14px; }
 
 .memory h3 {
   font-size:1.25rem;
@@ -398,9 +382,7 @@ h1 {
   margin:0 0 18px;
 }
 
-.memory .copy p:last-child {
-  line-height:1.9;
-}
+.memory .copy p:last-child { line-height:1.9; }
 
 /* CINQ ANS */
 
@@ -441,9 +423,7 @@ h1 {
   font-style:italic;
 }
 
-.gold {
-  color:#f0d2a8;
-}
+.gold { color:#f0d2a8; }
 
 .noces p {
   max-width:700px;
@@ -506,20 +486,14 @@ footer {
   letter-spacing:.1em;
 }
 
-footer p {
-  margin:7px;
-}
+footer p { margin:7px; }
 
-footer .heart {
-  color:#ff6475;
-}
+footer .heart { color:#ff6475; }
 
 /* TÉLÉPHONE */
 
 @media(max-width:720px) {
-  .hero::before {
-    inset:10px;
-  }
+  .hero::before { inset:10px; }
 
   .memory {
     grid-template-columns:1fr;
@@ -536,32 +510,22 @@ footer .heart {
     text-align:center;
   }
 
-  .photo-wrap img {
-    max-height:600px;
-  }
+  .photo-wrap img { max-height:600px; }
 
-  .intro {
-    padding:70px 24px 45px;
-  }
+  .intro { padding:70px 24px 45px; }
 
   .photo-number {
     left:5px;
     bottom:-15px;
   }
 
-  .noces {
-    padding:75px 24px;
-  }
+  .noces { padding:75px 24px; }
 
-  .letter {
-    padding:70px 18px;
-  }
+  .letter { padding:70px 18px; }
 }
 
 @media(prefers-reduced-motion:reduce) {
-  html {
-    scroll-behavior:auto;
-  }
+  html { scroll-behavior:auto; }
 
   *,*::before,*::after {
     animation-duration:.01ms !important;
@@ -828,42 +792,6 @@ footer .heart {
 
   </section>
 
-  <!-- SOUVENIR 7 : PHOTO 7 -->
-
-  <section class="memory">
-
-    <div class="photo-wrap">
-
-      <img
-        src="photo7.jpg.jpeg"
-        data-candidates="photo7.jpeg,photo7.jpg,photo7.png,photo7.webp,photo7.jpg.jpg"
-        alt="Arielle et Benjamin — Photo 7"
-        loading="eager"
-      >
-
-      <span class="photo-number">07</span>
-
-    </div>
-
-    <div class="copy">
-
-      <p class="eyebrow">Un souvenir précieux</p>
-
-      <h2>Un instant à deux</h2>
-
-      <h3>Un moment précieux à garder pour toujours.</h3>
-
-      <p>
-        Parce que votre belle histoire est faite de tant de moments
-        précieux. Que cette photo vous rappelle toujours la beauté
-        de votre amour, votre complicité et tous les beaux souvenirs
-        que vous continuez à construire ensemble.
-      </p>
-
-    </div>
-
-  </section>
-
 </main>
 
 <!-- CINQ ANNÉES -->
@@ -956,21 +884,16 @@ function ouvrir() {
   const champ = document.getElementById("pass");
   const erreur = document.getElementById("lock-error");
 
-  // Supprimer les espaces et caractères non numériques
   const date = champ.value.replace(/\D/g, "");
 
   if (date === "27112021") {
 
-    // Masquer l'écran du mot de passe
     document.getElementById("lock-screen").style.display = "none";
 
-    // Afficher le contenu du site
     document.getElementById("site-content").style.display = "block";
 
-    // Revenir en haut de la page
     window.scrollTo(0, 0);
 
-    // Lancer les petits cœurs
     lancerCoeurs();
 
   } else {
@@ -1005,7 +928,7 @@ const portraitArielle = document.querySelector(
   'img[alt^="Portrait d"]'
 );
 
-if (portraitArielle && portraitArielle.dataset.candidates) {
+if (portraitArielle) {
 
   const alternatives =
     portraitArielle.dataset.candidates.split(",");
@@ -1019,34 +942,6 @@ if (portraitArielle && portraitArielle.dataset.candidates) {
       portraitArielle.src = alternatives[index].trim();
 
       index++;
-
-    }
-
-  });
-
-}
-
-/* CHARGEMENT DE LA PHOTO 7 */
-
-const photoSept = document.querySelector(
-  'img[alt="Arielle et Benjamin — Photo 7"]'
-);
-
-if (photoSept && photoSept.dataset.candidates) {
-
-  const alternativesPhotoSept =
-    photoSept.dataset.candidates.split(",");
-
-  let indexPhotoSept = 0;
-
-  photoSept.addEventListener("error", function() {
-
-    if (indexPhotoSept < alternativesPhotoSept.length) {
-
-      photoSept.src =
-        alternativesPhotoSept[indexPhotoSept].trim();
-
-      indexPhotoSept++;
 
     }
 
@@ -1088,22 +983,14 @@ function lancerCoeurs() {
     zone.appendChild(coeur);
 
     setTimeout(function() {
-
       coeur.remove();
-
     }, 6000);
 
   }
 
-  // Première apparition de plusieurs cœurs
-
   for (let i = 0; i < 15; i++) {
-
     setTimeout(creerCoeur, i * 250);
-
   }
-
-  // Apparition continue des cœurs
 
   coeurTimer = setInterval(creerCoeur, 650);
 
