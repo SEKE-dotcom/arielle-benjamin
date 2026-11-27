@@ -828,7 +828,7 @@ footer .heart {
 
   </section>
 
-  <!-- UN AUTRE SOUVENIR : PHOTO 7 -->
+  <!-- SOUVENIR 7 : PHOTO 7 -->
 
   <section class="memory">
 
@@ -836,27 +836,28 @@ footer .heart {
 
       <img
         src="photo7.jpg.jpeg"
-        alt="Un autre souvenir d'Arielle et Benjamin"
-        loading="lazy"
+        data-candidates="photo7.jpeg,photo7.jpg,photo7.png,photo7.webp,photo7.jpg.jpg"
+        alt="Arielle et Benjamin — Photo 7"
+        loading="eager"
       >
 
-      <span class="photo-number">06</span>
+      <span class="photo-number">07</span>
 
     </div>
 
     <div class="copy">
 
-      <p class="eyebrow">Un autre souvenir</p>
+      <p class="eyebrow">Un souvenir précieux</p>
 
-      <h2>Un autre souvenir</h2>
+      <h2>Un instant à deux</h2>
 
-      <h3>Un instant précieux à garder pour toujours.</h3>
+      <h3>Un moment précieux à garder pour toujours.</h3>
 
       <p>
         Parce que votre belle histoire est faite de tant de moments
-        précieux. Cette photo vient ajouter un nouveau chapitre
-        à vos souvenirs, et j'espère qu'elle vous rappellera
-        toujours la beauté de votre amour et de votre complicité.
+        précieux. Que cette photo vous rappelle toujours la beauté
+        de votre amour, votre complicité et tous les beaux souvenirs
+        que vous continuez à construire ensemble.
       </p>
 
     </div>
@@ -1004,7 +1005,7 @@ const portraitArielle = document.querySelector(
   'img[alt^="Portrait d"]'
 );
 
-if (portraitArielle) {
+if (portraitArielle && portraitArielle.dataset.candidates) {
 
   const alternatives =
     portraitArielle.dataset.candidates.split(",");
@@ -1018,6 +1019,34 @@ if (portraitArielle) {
       portraitArielle.src = alternatives[index].trim();
 
       index++;
+
+    }
+
+  });
+
+}
+
+/* CHARGEMENT DE LA PHOTO 7 */
+
+const photoSept = document.querySelector(
+  'img[alt="Arielle et Benjamin — Photo 7"]'
+);
+
+if (photoSept && photoSept.dataset.candidates) {
+
+  const alternativesPhotoSept =
+    photoSept.dataset.candidates.split(",");
+
+  let indexPhotoSept = 0;
+
+  photoSept.addEventListener("error", function() {
+
+    if (indexPhotoSept < alternativesPhotoSept.length) {
+
+      photoSept.src =
+        alternativesPhotoSept[indexPhotoSept].trim();
+
+      indexPhotoSept++;
 
     }
 
