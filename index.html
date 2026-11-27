@@ -1,35 +1,48 @@
 
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#3b2028">
+<meta name="theme-color" content="#481b27">
 <title>Arielle & Benjamin — 5 ans d'amour</title>
 
 <style>
 :root {
-  --plum:#3b2028;
+  --plum:#481b27;
   --dark:#241118;
-  --gold:#b99a70;
-  --champ:#e8cda5;
-  --cream:#fff9f2;
-  --ivory:#f2e8dc;
+  --wine:#762b3d;
+  --red:#e63946;
+  --red-light:#ff7180;
+  --gold:#c5a477;
+  --champ:#f0d7b5;
+  --cream:#fffaf5;
+  --ivory:#f6ece2;
   --ink:#382b2b;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing:border-box;
+}
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+}
 
 body {
   margin:0;
   background:var(--cream);
   color:var(--ink);
   font-family:Georgia,"Times New Roman",serif;
-  line-height:1.75;
+  line-height:1.8;
   overflow-x:hidden;
+}
+
+::selection {
+  background:#e9b7bd;
+  color:var(--plum);
 }
 
 /* ÉCRAN PRIVÉ */
@@ -38,7 +51,10 @@ body {
   position:fixed;
   inset:0;
   z-index:99999;
-  background:radial-gradient(circle at top,#522936,var(--plum) 55%,var(--dark));
+  background:
+    radial-gradient(circle at 20% 20%,#854052 0%,transparent 35%),
+    radial-gradient(circle at 80% 85%,#743044 0%,transparent 35%),
+    linear-gradient(145deg,#241118,#481b27 55%,#30131d);
   color:var(--ivory);
   display:flex;
   align-items:center;
@@ -48,13 +64,35 @@ body {
 }
 
 .lock-card {
-  max-width:420px;
+  max-width:430px;
   width:100%;
-  background:rgba(255,249,242,.06);
-  border:1px solid rgba(232,205,165,.4);
-  border-radius:20px;
-  padding:40px 24px;
-  box-shadow:0 25px 60px rgba(0,0,0,.45);
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,249,242,.09);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(240,215,181,.5);
+  border-radius:28px;
+  padding:45px 28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+}
+
+.lock-card::before,
+.lock-card::after {
+  content:"♡";
+  position:absolute;
+  color:rgba(255,113,128,.18);
+  font-size:100px;
+  pointer-events:none;
+}
+
+.lock-card::before {
+  top:-40px;
+  left:-20px;
+}
+
+.lock-card::after {
+  bottom:-55px;
+  right:-15px;
 }
 
 .kicker,.eyebrow {
@@ -65,21 +103,22 @@ body {
 }
 
 .lock-title {
-  font-size:clamp(2.1rem,6vw,2.9rem);
+  font-size:clamp(2.1rem,6vw,3rem);
   font-weight:400;
   font-style:italic;
   color:var(--champ);
-  margin:10px 0 8px;
+  margin:12px 0;
 }
 
 .lock-sub {
-  font-size:1.12rem;
+  font-size:1.2rem;
   margin:0 0 22px;
+  color:#fff3e8;
 }
 
 .lock-input {
   width:100%;
-  padding:14px;
+  padding:15px;
   border-radius:99px;
   border:1px solid var(--champ);
   background:var(--cream);
@@ -91,23 +130,31 @@ body {
   margin:14px 0;
 }
 
+.lock-input:focus {
+  box-shadow:0 0 0 4px rgba(255,113,128,.2);
+}
+
 .lock-btn {
   width:100%;
-  padding:14px;
+  padding:15px;
   border-radius:99px;
-  border:1px solid var(--champ);
-  background:linear-gradient(135deg,#c7a77b,#a48358);
+  border:1px solid #ffb0b8;
+  background:linear-gradient(135deg,#e85b6a,#a82f47);
   color:white;
   font:700 .82rem Arial,sans-serif;
   letter-spacing:.14em;
   text-transform:uppercase;
   cursor:pointer;
+  transition:.3s;
 }
 
-.lock-btn:hover { opacity:.9; }
+.lock-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px #e6394640;
+}
 
 #lock-error {
-  color:#f7d5b8;
+  color:#ffc4ca;
   min-height:1.6em;
   font-style:italic;
   font-size:.95rem;
@@ -115,7 +162,9 @@ body {
 
 /* CONTENU */
 
-#site-content { display:none; }
+#site-content {
+  display:none;
+}
 
 #hearts {
   position:fixed;
@@ -127,14 +176,26 @@ body {
 
 .fheart {
   position:absolute;
-  animation:heartPulse 4.6s ease-in-out forwards;
+  animation:heartFloat 6s ease-in-out forwards;
+  text-shadow:0 2px 8px rgba(230,57,70,.2);
+  will-change:transform,opacity;
 }
 
-@keyframes heartPulse {
-  0% { opacity:0;transform:translateY(12px) scale(.55); }
-  25% { opacity:.85;transform:translateY(0) scale(1); }
-  75% { opacity:.75;transform:translateY(-20px) scale(1.08); }
-  100% { opacity:0;transform:translateY(-38px) scale(.75); }
+@keyframes heartFloat {
+  0% {
+    opacity:0;
+    transform:translateY(25px) rotate(-15deg) scale(.5);
+  }
+  15% {
+    opacity:.9;
+  }
+  70% {
+    opacity:.75;
+  }
+  100% {
+    opacity:0;
+    transform:translateY(-150px) rotate(20deg) scale(1.15);
+  }
 }
 
 /* COUVERTURE */
@@ -144,61 +205,95 @@ body {
   display:grid;
   place-items:center;
   text-align:center;
-  padding:24px;
+  padding:30px 22px;
+  position:relative;
+  isolation:isolate;
   background:
-    linear-gradient(180deg,rgba(26,18,19,.16),rgba(35,19,25,.76)),
+    linear-gradient(180deg,rgba(26,18,19,.2),rgba(35,19,25,.78)),
     url("photo1.jpg.jpeg") center/cover no-repeat;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(255,239,218,.55);
+  z-index:-1;
+  pointer-events:none;
 }
 
 .hero-inner {
   color:#fff8ee;
-  max-width:780px;
+  max-width:800px;
   text-shadow:0 2px 22px #24171a;
+  animation:fadeUp 1.4s ease both;
 }
 
-.hero .kicker { color:#f4d9ad; }
+@keyframes fadeUp {
+  from {
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero .kicker {
+  color:#ffe0c1;
+}
 
 h1 {
-  font-size:clamp(3rem,9vw,7rem);
+  font-size:clamp(3.2rem,10vw,7.5rem);
   font-weight:400;
   line-height:1.05;
-  margin:.2em 0;
+  margin:.25em 0;
   font-style:italic;
 }
 
 .date {
-  letter-spacing:.18em;
+  letter-spacing:.2em;
   font:1rem Arial,sans-serif;
 }
 
 .anniversary {
-  font-size:1.2rem;
-  margin:24px 0 32px;
+  font-size:1.25rem;
+  margin:25px 0 32px;
 }
 
 .btn {
   display:inline-block;
   border:1px solid var(--champ);
-  padding:12px 25px;
+  padding:13px 27px;
   color:white;
   text-decoration:none;
   border-radius:99px;
   letter-spacing:.08em;
   font:.78rem Arial,sans-serif;
-  transition:.3s;
+  transition:.35s;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(5px);
 }
 
 .btn:hover {
-  background:var(--champ);
-  color:var(--plum);
+  background:var(--red);
+  border-color:var(--red);
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px #e6394650;
+}
+
+.heart {
+  color:var(--red-light);
+  text-shadow:0 0 15px #e6394670;
 }
 
 /* INTRODUCTION */
 
 .intro {
   text-align:center;
-  padding:84px 22px 58px;
-  max-width:850px;
+  padding:95px 24px 65px;
+  max-width:900px;
   margin:auto;
 }
 
@@ -206,37 +301,64 @@ h1 {
   font-weight:400;
   color:var(--plum);
   font-size:clamp(2rem,5vw,3.5rem);
-  line-height:1.15;
+  line-height:1.2;
 }
 
 .ornament {
-  color:var(--gold);
-  font-size:2rem;
+  color:var(--red);
+  font-size:2.1rem;
+  margin:12px 0;
+}
+
+.intro p:last-child {
+  max-width:720px;
+  margin:20px auto;
 }
 
 /* SOUVENIRS */
 
 .memories {
-  max-width:1100px;
+  max-width:1150px;
   margin:auto;
-  padding:0 24px 70px;
+  padding:0 28px 75px;
 }
 
 .memory {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:clamp(28px,6vw,80px);
+  gap:clamp(28px,6vw,85px);
   align-items:center;
-  margin:50px 0 100px;
+  margin:60px 0 110px;
 }
 
-.memory:nth-child(even) .photo-wrap { order:2; }
+.memory:nth-child(even) .photo-wrap {
+  order:2;
+}
 
 .photo-wrap {
   position:relative;
   max-width:520px;
   margin:auto;
   width:100%;
+  padding:10px;
+  background:white;
+  border-radius:8px;
+  box-shadow:0 22px 55px rgba(59,32,40,.12);
+  transition:transform .4s,box-shadow .4s;
+}
+
+.photo-wrap:hover {
+  transform:translateY(-7px) rotate(-.5deg);
+  box-shadow:0 28px 65px rgba(59,32,40,.2);
+}
+
+.photo-wrap::before {
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border:1px solid #d8bda1;
+  border-radius:10px;
+  pointer-events:none;
 }
 
 .photo-wrap img {
@@ -244,73 +366,121 @@ h1 {
   display:block;
   max-height:690px;
   object-fit:cover;
-  border-radius:5px;
-  box-shadow:0 22px 55px #3b20281b;
+  object-position:center;
+  border-radius:4px;
 }
 
 .photo-number {
   position:absolute;
-  bottom:-18px;
-  left:-18px;
-  background:var(--gold);
+  bottom:-20px;
+  left:-15px;
+  background:linear-gradient(135deg,#e85b6a,#a82f47);
   color:white;
-  padding:12px 18px;
+  padding:12px 19px;
+  border-radius:4px;
   font:.75rem Arial,sans-serif;
   letter-spacing:.14em;
+  box-shadow:0 8px 20px #e6394630;
 }
 
-.copy { max-width:490px; }
+.copy {
+  max-width:490px;
+}
 
-.memory h2 { margin:10px 0 14px; }
+.memory h2 {
+  margin:10px 0 14px;
+}
 
 .memory h3 {
   font-size:1.25rem;
-  color:#8d6e4b;
+  color:#986d62;
   font-weight:400;
   font-style:italic;
   margin:0 0 18px;
 }
 
+.memory .copy p:last-child {
+  line-height:1.9;
+}
+
 /* CINQ ANS */
 
 .noces {
-  background:var(--plum);
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 20%,#713447,transparent 35%),
+    radial-gradient(circle at 90% 80%,#672b3c,transparent 35%),
+    linear-gradient(135deg,#30151f,#481b27);
   color:var(--cream);
   text-align:center;
-  padding:85px 24px;
+  padding:100px 24px;
+}
+
+.noces::before,
+.noces::after {
+  content:"♡";
+  position:absolute;
+  font-size:180px;
+  color:rgba(255,113,128,.08);
+}
+
+.noces::before {
+  top:-50px;
+  left:-20px;
+}
+
+.noces::after {
+  bottom:-85px;
+  right:-20px;
 }
 
 .noces h2 {
-  font-size:clamp(2.3rem,6vw,4rem);
+  font-size:clamp(2.4rem,6vw,4.4rem);
   font-weight:400;
-  margin:0 0 15px;
+  margin:10px 0;
+  font-style:italic;
 }
 
-.gold { color:#e6c69a; }
+.gold {
+  color:#f0d2a8;
+}
 
 .noces p {
   max-width:700px;
   margin:20px auto;
+  position:relative;
 }
 
 /* LETTRE */
 
 .letter {
-  max-width:800px;
+  max-width:850px;
   margin:auto;
-  padding:90px 25px 100px;
+  padding:100px 25px 110px;
 }
 
 .paper {
-  background:#fffdf9;
+  position:relative;
+  background:linear-gradient(145deg,#fffefa,#fff8f2);
   border:1px solid #eadcc9;
-  padding:clamp(28px,7vw,70px);
-  box-shadow:0 18px 60px #3b20280c;
+  border-radius:8px;
+  padding:clamp(28px,7vw,75px);
+  box-shadow:0 20px 65px rgba(59,32,40,.09);
+}
+
+.paper::before {
+  content:"♡";
+  position:absolute;
+  top:15px;
+  right:22px;
+  color:#e9b6bc;
+  font-size:2rem;
 }
 
 .letter h2 {
   text-align:center;
-  margin:12px 0 30px;
+  margin:12px 0 35px;
 }
 
 .letter p {
@@ -319,46 +489,84 @@ h1 {
 }
 
 .signature {
-  color:#8d6e4b;
+  color:#a83c50;
   font-style:italic;
   text-align:right;
   font-size:1.2rem;
-  margin-top:24px;
+  margin-top:28px;
 }
 
 /* PIED DE PAGE */
 
 footer {
-  background:#29191f;
-  color:#d7c3ad;
+  background:#29131c;
+  color:#e3cfc2;
   text-align:center;
-  padding:30px 15px;
+  padding:38px 15px;
   font:.75rem Arial,sans-serif;
   letter-spacing:.1em;
 }
 
-.heart { color:#d8ae82; }
+footer p {
+  margin:7px;
+}
+
+footer .heart {
+  color:#ff6475;
+}
 
 /* TÉLÉPHONE */
 
 @media(max-width:720px) {
-  .memory {
-    grid-template-columns:1fr;
-    gap:28px;
-    margin:38px 0 78px;
+  .hero::before {
+    inset:10px;
   }
 
-  .memory:nth-child(even) .photo-wrap { order:0; }
+  .memory {
+    grid-template-columns:1fr;
+    gap:35px;
+    margin:45px 0 85px;
+  }
 
-  .copy { margin:auto; }
+  .memory:nth-child(even) .photo-wrap {
+    order:0;
+  }
 
-  .photo-wrap img { max-height:600px; }
+  .copy {
+    margin:auto;
+    text-align:center;
+  }
 
-  .intro { padding-top:65px; }
+  .photo-wrap img {
+    max-height:600px;
+  }
+
+  .intro {
+    padding:70px 24px 45px;
+  }
 
   .photo-number {
-    left:10px;
-    bottom:-14px;
+    left:5px;
+    bottom:-15px;
+  }
+
+  .noces {
+    padding:75px 24px;
+  }
+
+  .letter {
+    padding:70px 18px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto;
+  }
+
+  *,*::before,*::after {
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
   }
 }
 </style>
@@ -374,7 +582,7 @@ footer {
 
     <h2 class="lock-title">Arielle & Benjamin</h2>
 
-    <p class="lock-sub">5 ans d'amour ♡</p>
+    <p class="lock-sub">5 ans d'amour <span class="heart">♥</span></p>
 
     <p style="font:.88rem Arial,sans-serif;color:var(--champ)">
       Entrez la date de votre mariage pour ouvrir vos souvenirs
@@ -414,7 +622,7 @@ footer {
     <p class="date">27 · 11 · 2021</p>
 
     <p class="anniversary">
-      Noces de bois <span class="heart">♡</span> 5 ans
+      Noces de bois <span class="heart">♥</span> 5 ans
     </p>
 
     <a class="btn" href="#souvenirs">
@@ -441,7 +649,13 @@ footer {
 
   <section class="memory">
     <div class="photo-wrap">
-      <img src="photo2.jpg.jpeg" alt="Arielle" loading="lazy">
+      <img
+        src="photo2.jpg.jpeg"
+        data-candidates="photo2.jpeg,photo2.jpg,photo2.png,photo2.jpg.jpeg"
+        alt="Portrait d'Arielle"
+        loading="eager"
+        fetchpriority="high"
+      >
       <span class="photo-number">01</span>
     </div>
 
@@ -534,6 +748,27 @@ footer {
     </div>
   </section>
 
+  <!-- NOUVELLE PHOTO -->
+
+  <section class="memory">
+    <div class="photo-wrap">
+      <img src="photo7.jpg.jpeg" alt="Un autre beau souvenir" loading="lazy">
+      <span class="photo-number">06</span>
+    </div>
+
+    <div class="copy">
+      <p class="eyebrow">Un autre chapitre de votre histoire</p>
+      <h2>Un souvenir de plus</h2>
+      <h3>Parce que les beaux moments méritent d'être gardés.</h3>
+
+      <p>
+        Chaque instant partagé devient un souvenir précieux.
+        Que cette nouvelle image vous rappelle encore tout
+        le bonheur que vous construisez ensemble.
+      </p>
+    </div>
+  </section>
+
 </main>
 
 <!-- CINQ ANNÉES -->
@@ -557,7 +792,7 @@ footer {
     Et que Jéhovah reste toujours au centre de votre union.
   </p>
 
-  <p style="font-size:2rem">♡</p>
+  <p style="font-size:2rem;color:#ff7180">♥</p>
 </section>
 
 <!-- LETTRE PERSONNELLE -->
@@ -588,7 +823,7 @@ Cinq années déjà… et tant de beaux chapitres encore à écrire, à deux, av
 Joyeuses noces de bois, mes chers amis. Je vous aime très fort, et je vous souhaite une vie longue, heureuse et abondamment bénie par Jéhovah.</p>
 
     <p class="signature">
-      Avec toute mon affection ♡
+      Avec toute mon affection <span class="heart">♥</span>
     </p>
 
   </div>
@@ -597,7 +832,7 @@ Joyeuses noces de bois, mes chers amis. Je vous aime très fort, et je vous souh
 <footer>
   <p>ARIELLE & BENJAMIN</p>
   <p>Cinq ans d'amour · 27.11.2021</p>
-  <p>Une histoire précieuse, pour toujours <span class="heart">♡</span></p>
+  <p>Une histoire précieuse, pour toujours <span class="heart">♥</span></p>
 </footer>
 
 </div>
@@ -619,7 +854,7 @@ function ouvrir() {
 
   } else {
     erreur.textContent =
-      "Cette date ne correspond pas. Réessayez ♡";
+      "Cette date ne correspond pas. Réessayez ♥";
 
     champ.value = "";
     champ.focus();
@@ -634,32 +869,54 @@ document.getElementById("pass").addEventListener("keydown",function(e) {
   }
 });
 
-/* ANIMATION DES PETITS CŒURS */
+/* CORRECTION DU PORTRAIT D'ARIELLE */
+
+const portraitArielle = document.querySelector(
+  'img[alt="Portrait d\\'Arielle"]'
+);
+
+if (portraitArielle) {
+  const alternatives = portraitArielle.dataset.candidates.split(",");
+  let index = 0;
+
+  portraitArielle.addEventListener("error",function() {
+    if (index < alternatives.length) {
+      portraitArielle.src = alternatives[index].trim();
+      index++;
+    }
+  });
+}
+
+/* ANIMATION DES CŒURS ROUGES */
+
+let coeurTimer = null;
 
 function lancerCoeurs() {
   const zone = document.getElementById("hearts");
+
+  if (coeurTimer) return;
 
   function creerCoeur() {
     const coeur = document.createElement("span");
 
     coeur.className = "fheart";
-    coeur.textContent = Math.random() > 0.5 ? "♡" : "♥";
+    coeur.textContent = Math.random() > 0.45 ? "♥" : "♡";
 
     coeur.style.left = Math.random() * 100 + "%";
-    coeur.style.top = Math.random() * 100 + "%";
-    coeur.style.fontSize = (12 + Math.random() * 18) + "px";
-    coeur.style.color = "#c7a77b";
+    coeur.style.top = (65 + Math.random() * 35) + "%";
+    coeur.style.fontSize = (13 + Math.random() * 20) + "px";
+    coeur.style.color = Math.random() > 0.5 ? "#e63946" : "#ff7180";
 
     zone.appendChild(coeur);
 
-    setTimeout(() => coeur.remove(),4600);
+    setTimeout(() => coeur.remove(),6000);
   }
 
-  for (let i=0;i<12;i++) {
-    setTimeout(creerCoeur,i*350);
+  for (let i=0;i<15;i++) {
+    setTimeout(creerCoeur,i*250);
   }
 
-  setInterval(creerCoeur,1300);
+  coeurTimer = setInterval(creerCoeur,650);
 }
 </script>
 
